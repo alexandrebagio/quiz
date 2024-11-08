@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
-import QuestionModel from '@/model/QuestionModel'
 import Questionnaire from '@/components/Questionnaire'
-
-const BASE_URL = 'http://localhost:3000/api'
+import QuestionModel from '@/model/QuestionModel'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
     const router = useRouter()
@@ -13,13 +11,13 @@ export default function Home() {
     const [AnswersCorrects, setAnswersCorrects] = useState<number>(0)
 
     async function loadQuestionsIds() {
-        const resp = await fetch(`${BASE_URL}/questionnaire`);
+        const resp = await fetch('/api/questionnaire');
         const idsQuestions = await resp.json();
         setIdsQuestions(idsQuestions);
     }
 
     async function loadQuestion(id: number) {
-        const resp = await fetch(`${BASE_URL}/question/${id}`);
+        const resp = await fetch(`/api/question/${id}`);
         const json = await resp.json();
         const questionLoaded = QuestionModel.createObject(json);
         setQuestion(questionLoaded);
