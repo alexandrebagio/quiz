@@ -13,7 +13,7 @@ export default function Result() {
     return (
         <div className={styles.result}>
             <h1>Resultado Final</h1>
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex", flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center' }}>
                 <Statistic text="Perguntas" value={total} />
                 <Statistic text="Certas" value={corrects} backColor="#9CD2A4"/>
                 <Statistic text="Percentual" value={`${percent}%`} backColor="#DE6A33" />

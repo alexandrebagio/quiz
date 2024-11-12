@@ -3,6 +3,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    margin: 25px 20px;
     font-size: 2rem;
 }
